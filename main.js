@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const followers = document.querySelector('#followers');
     const following = document.querySelector('#following');
     const link = document.querySelector('#link');
+    const avatarPic = document.querySelector('#avatar');
 
     const urlAPI = 'https://api.github.com/users/MiguelNeph'
 
@@ -20,5 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
             following.innerText = json.following;
             respository.innerText = json.public_repos;
             link.href = json.html_url;
+            avatarPic.src = json.avatar_url;
         })
+
+        .catch(function(erro){ 
+            alert("Algum ou varios dos dados nao foram carregados com suceso.")
+        })
+
 })
